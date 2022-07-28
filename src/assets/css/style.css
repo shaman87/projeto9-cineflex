@@ -10,6 +10,23 @@ body {
     margin: 0 auto;
 }
 
+body::-webkit-scrollbar {
+    width: 12px;
+}
+  
+body::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.05)
+}
+  
+body::-webkit-scrollbar-thumb {
+    background-color:lightgray;
+    border-radius: 20px;
+}
+
+body::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
 .header {
     background-color: #C3CFD9;
     display: flex;
@@ -35,7 +52,7 @@ body {
     font-size: 24px;
 }
 
-.container {
+.container-movies {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
@@ -44,20 +61,20 @@ body {
     overflow-y: scroll;
 }
 
-.container::-webkit-scrollbar {
+.container-movies::-webkit-scrollbar {
     width: 5px;
 }
   
-.container::-webkit-scrollbar-track {
+.container-movies::-webkit-scrollbar-track {
     background: rgba(0, 0, 0, 0.05)
 }
   
-.container::-webkit-scrollbar-thumb {
+.container-movies::-webkit-scrollbar-thumb {
     background-color:lightgray;
     border-radius: 20px;
 }
 
-.container::-webkit-scrollbar-thumb:hover {
+.container-movies::-webkit-scrollbar-thumb:hover {
     background-color: rgba(0, 0, 0, 0.4);
 }
 
@@ -76,4 +93,73 @@ body {
 .poster-frame img {
     width: 129px;
     height: 193px;
+}
+
+.container-sessions {
+    height: 680px;
+    padding: 0 30px 30px 30px;
+    overflow-y: scroll;
+}
+
+.container-sessions::-webkit-scrollbar {
+    width: 5px;
+}
+  
+.container-sessions::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.05)
+}
+  
+.container-sessions::-webkit-scrollbar-thumb {
+    background-color:lightgray;
+    border-radius: 20px;
+}
+
+.container-sessions::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.container-sessions h3 {
+    color: #293845;
+    font-size: 20px;
+}
+
+.container-sessions button {
+    background-color: #E8833A;
+    color: #FFF;
+    font-size: 18px;
+    width: 83px;
+    height: 43px;
+    margin: 30px 8px 30px 0;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.footer {
+    background-color: #DFE6ED;
+    display: flex;
+    align-items: center;
+    padding: 18px;
+}
+
+.footer h2 {
+    color: #293845;
+    font-size: 26px;
+    padding-left: 14px;
+}
+
+.image-frame {
+    background-color: #FFF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 65px;
+    height: 90px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 2px;
+}
+
+.image-frame img {
+    width: 90%;
+    height: 90%;
 }

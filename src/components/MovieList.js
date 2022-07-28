@@ -9,7 +9,6 @@ export default function MovieList() {
         const promise = axios.get("https://mock-api.driven.com.br/api/v5/cineflex/movies");
 
         promise.then(response => {
-            console.log(response.data);
             setMovieList(response.data);
         });
     }, []);
@@ -19,7 +18,7 @@ export default function MovieList() {
             <div className="title">
                 <h2>Selecione o filme</h2>
             </div>
-            <div className="container">
+            <div className="container-movies">
                 {movieList.map((movie, index) => (
                     <Movie 
                         key={index} 
