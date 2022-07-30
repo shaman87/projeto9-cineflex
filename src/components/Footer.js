@@ -1,16 +1,18 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 
-export default function Footer({id}) {
+export default function Footer({ movieId, weekday, timeSession }) {
     const [movie, setMovie] = useState([]);
 
     useEffect(() => {
-        const promise = axios.get("https://mock-api.driven.com.br/api/v5/cineflex/movies");
+        const promise = axios.get("https://mock-api.driven.com.br/api/v7/cineflex/movies");
 
         promise.then(response => {
-            setMovie(response.data[id-1]);
+            if(movieId !== undefined) {
+                setMovie(response.data[movieId-1]);
+            }
         });
-    }, []);
+    }, [movieId]);
 
     return (
         <>
@@ -18,7 +20,11 @@ export default function Footer({id}) {
                 <div className="image-frame">
                     <img src={movie.posterURL} alt={movie.title} />
                 </div>
-                <h2>{movie.title}</h2>
+
+                <div>
+                    <h2>{movie.title}</h2>
+                    <h2>{weekday} - {timeSession}</h2>
+                </div>
             </div>
         </>
     );

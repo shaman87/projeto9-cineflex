@@ -123,16 +123,27 @@ body::-webkit-scrollbar-thumb:hover {
     font-size: 20px;
 }
 
+.container-sessions div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 190px;
+    height: 103px;
+}
+
 .container-sessions button {
     background-color: #E8833A;
     color: #FFF;
     font-size: 18px;
     width: 83px;
     height: 43px;
-    margin: 30px 8px 30px 0;
     border: none;
     border-radius: 3px;
     cursor: pointer;
+}
+
+.container-sessions button:hover {
+    filter: brightness(1.1);
 }
 
 .footer {
@@ -145,7 +156,7 @@ body::-webkit-scrollbar-thumb:hover {
 .footer h2 {
     color: #293845;
     font-size: 26px;
-    padding-left: 14px;
+    padding: 4px 14px;
 }
 
 .image-frame {
@@ -162,4 +173,91 @@ body::-webkit-scrollbar-thumb:hover {
 .image-frame img {
     width: 90%;
     height: 90%;
+}
+
+.container-seats {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.container-seats-examples {
+    display: flex;
+    justify-content: space-around;
+    font-size: 13px;
+}
+
+.seat {
+    font-size: 11px;
+    font-weight: 500;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 26px;
+    height: 26px;
+    margin: 0 6px 20px 6px;
+    border-radius: 17px;
+    cursor: pointer;
+}
+
+.seat.available {
+    background-color: #C3CFD9;
+    border: 1px solid #7B8B99;
+}
+
+.seat.selected {
+    background-color: #8DD7CF;
+    border: 1px solid #1AAE9E;
+}
+
+.seat.unavailable {
+    background-color: #FBE192;
+    border: 1px solid #F7C52B;
+}
+
+.form form {
+    font-size: 18px;
+    height: 390px;
+    padding: 50px 10px 10px 10px;
+}
+
+.form form div {
+    padding: 5px;
+}
+
+.form form div input {
+    color: #293845;
+    font-size: 18px;
+    width: 100%;
+    height: 50px;
+    padding: 0 20px;
+    margin-bottom: 10px;
+    border: 1px solid #D5D5D5;
+    border-radius: 3px;
+}
+
+.form form div input::placeholder {
+    color: #AFAFAF;
+    font-style: italic;
+}
+
+.form form div input:focus {
+    outline: 1px solid rgba(0, 0, 0, 0.5);
+}
+
+.form form div button {
+    background-color: #E8833A;
+    color: #FFF;
+    font-size: 18px;
+    width: 225px;
+    height: 42px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.form form div:nth-child(3) {
+    display: flex;
+    justify-content: center;
+    padding-top: 60px;
 }

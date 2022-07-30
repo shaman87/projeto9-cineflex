@@ -6,14 +6,14 @@ export default function MovieList() {
     const [movieList, setMovieList] = useState([]);
 
     useEffect(() => {
-        const promise = axios.get("https://mock-api.driven.com.br/api/v5/cineflex/movies");
-
+        const promise = axios.get("https://mock-api.driven.com.br/api/v7/cineflex/movies");
+        
         promise.then(response => {
             setMovieList(response.data);
         });
     }, []);
 
-    return(
+    return (
         <>
             <div className="title">
                 <h2>Selecione o filme</h2>
@@ -23,7 +23,7 @@ export default function MovieList() {
                     <Movie 
                         key={index} 
                         index={index} 
-                        id={movie.id} 
+                        movieId={movie.id} 
                         movieImage={movie.posterURL} 
                         movieTitle={movie.title} 
                     />

@@ -1,17 +1,18 @@
 import { Link } from "react-router-dom";
-import SeatList from "./SeatList";
 
-export default function Session({id, day, date, times}) {
+export default function Session({ day, date, times }) {
     return (
         <>
             <h3>{day} - {date}</h3>
 
-            <Link to={`/assentos/${id}`}>
-                <div>
-                    <button onClick={() => {<SeatList />}}>{times[0].name}</button>
-                    <button onClick={() => {<SeatList />}}>{times[1].name}</button>
-                </div>
-            </Link>
+            <div>
+                <Link to={`/assentos/${times[0].id}`} >
+                    <button>{times[0].name}</button>
+                </Link>
+                <Link to={`/assentos/${times[1].id}`} >
+                    <button>{times[1].name}</button>
+                </Link>
+            </div>
         </>
     );
 }

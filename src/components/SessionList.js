@@ -5,12 +5,12 @@ import Session from "./Session";
 import Footer from "./Footer";
 
 export default function SessionList() {
-    const params = useParams();
+    const {idFilme} = useParams();
     const [sessions, setSessions] = useState([]);
 
     useEffect(() => {
-        const promise = axios.get(`https://mock-api.driven.com.br/api/v5/cineflex/movies/${params.idFilme}/showtimes`);
-
+        const promise = axios.get(`https://mock-api.driven.com.br/api/v7/cineflex/movies/${idFilme}/showtimes`);
+        
         promise.then(response => {
             setSessions(response.data.days);
         });
@@ -27,7 +27,6 @@ export default function SessionList() {
                     <Session
                         key={index} 
                         index={index} 
-                        id={params.idFilme} 
                         day={session.weekday} 
                         date={session.date} 
                         times={session.showtimes} 
@@ -35,7 +34,7 @@ export default function SessionList() {
                 ))}
             </div>
             
-            <Footer id={params.idFilme} />
+            <Footer movieId={idFilme} />
         </>
     );
 }
