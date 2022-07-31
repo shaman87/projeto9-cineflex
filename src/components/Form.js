@@ -1,8 +1,8 @@
 import { useState } from "react";
-import { Link , useNavigate} from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
-export default function Form({ selectedSeats, movieName, date, timeSession, orderInfo, setOrderInfo }) {
+export default function Form({ selectedSeatsIds, selectedSeatsNumbers, movieName, date, timeSession, orderInfo, setOrderInfo }) {
     const [name, setName] = useState("");
     const [cpf, setCpf] = useState("");
     let navigate = useNavigate();
@@ -11,7 +11,7 @@ export default function Form({ selectedSeats, movieName, date, timeSession, orde
         event.preventDefault();
 
         const promise = axios.post("https://mock-api.driven.com.br/api/v7/cineflex/seats/book-many", {
-            ids: selectedSeats, 
+            ids: selectedSeatsIds, 
             name, 
             cpf
         });
@@ -23,7 +23,7 @@ export default function Form({ selectedSeats, movieName, date, timeSession, orde
                 movieName, 
                 date, 
                 timeSession, 
-                selectedSeats, 
+                selectedSeatsNumbers, 
                 name, 
                 cpf
             });

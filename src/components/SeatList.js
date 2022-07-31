@@ -13,14 +13,14 @@ export default function SeatList({ orderInfo, setOrderInfo }) {
     const [weekday, setWeekday] = useState("");
     const [timeSession, setTimeSession] = useState("");
     const [movieName, setMovieName] = useState("");
-    const [selectedSeats, setSelectedSeats] = useState([]);
+    const [selectedSeatsIds, setSelectedSeatsIds] = useState([]);
+    const [selectedSeatsNumbers, setSelectedSeatsNumbers] = useState([]);
     const {idSessao} = useParams();
 
     useEffect(() => {
         const promise = axios.get(`https://mock-api.driven.com.br/api/v7/cineflex/showtimes/${idSessao}/seats`);
 
         promise.then(response => {
-            console.log(response.data);
             setMovieName(response.data.movie.title)
             setDate(response.data.day.date);
             setWeekday(response.data.day.weekday);
@@ -29,8 +29,6 @@ export default function SeatList({ orderInfo, setOrderInfo }) {
             setSession(response.data.seats);
         });
     }, []);
-
-    console.log(selectedSeats);
 
     return (
         <>
@@ -45,8 +43,10 @@ export default function SeatList({ orderInfo, setOrderInfo }) {
                         seatId={seat.id}
                         chairNumber={seat.name} 
                         isAvailable={seat.isAvailable}
-                        selectedSeats={selectedSeats} 
-                        setSelectedSeats={setSelectedSeats} 
+                        selectedSeatsIds={selectedSeatsIds} 
+                        setSelectedSeatsIds={setSelectedSeatsIds} 
+                        selectedSeatsNumbers={selectedSeatsNumbers} 
+                        setSelectedSeatsNumbers={setSelectedSeatsNumbers}
                     />
                 ))}
             </div>
@@ -64,7 +64,8 @@ export default function SeatList({ orderInfo, setOrderInfo }) {
             </div>
 
             <Form 
-                selectedSeats={selectedSeats} 
+                selectedSeatsIds={selectedSeatsIds} 
+                selectedSeatsNumbers={selectedSeatsNumbers} 
                 movieName={movieName} 
                 date={date} 
                 timeSession={timeSession} 

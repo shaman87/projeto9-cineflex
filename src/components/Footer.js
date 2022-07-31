@@ -23,7 +23,11 @@ export default function Footer({ movieId, weekday, timeSession }) {
 
                 <div>
                     <h2>{movie.title}</h2>
-                    <h2>{weekday} - {timeSession}</h2>
+                    {timeSession === undefined ? (
+                        <h2>{weekday}</h2>
+                    ) : (
+                        <h2>{weekday} - {timeSession}</h2>
+                    )}
                 </div>
             </div>
         </>

@@ -1,19 +1,39 @@
 import { useState } from "react";
 
-export default function Seat({seatId, chairNumber, isAvailable, selectedSeats, setSelectedSeats}) {
+export default function Seat({ 
+    seatId, 
+    chairNumber, 
+    isAvailable, 
+    selectedSeatsIds, 
+    setSelectedSeatsIds, 
+    selectedSeatsNumbers, 
+    setSelectedSeatsNumbers 
+}) {
+
     const [selected, setSelected] = useState("seat available");
 
     function selectSeat() {
         selected === "seat available" ? setSelected("seat selected") : setSelected("seat available");
 
         if((selected === "seat available") && (isAvailable === true)) {
-            const newArray = [...selectedSeats, seatId];
-            setSelectedSeats(newArray);
+            const newArrayIds = [...selectedSeatsIds, seatId];
+            const newArrayNumbers = [...selectedSeatsNumbers, chairNumber];
+
+            setSelectedSeatsIds(newArrayIds);
+            setSelectedSeatsNumbers(newArrayNumbers);
+
         } else if((selected === "seat selected") && (isAvailable === true)) {
-            const newArray = [...selectedSeats];
-            const index = newArray.indexOf(seatId);
-            newArray.splice(index, 1);
-            setSelectedSeats(newArray);
+            const newArrayIds = [...selectedSeatsIds];
+            const newArrayNumbers = [...selectedSeatsNumbers];
+            const indexIds = newArrayIds.indexOf(seatId);
+            const indexNumbers = newArrayNumbers.indexOf(chairNumber);
+
+            newArrayIds.splice(indexIds, 1);
+            newArrayNumbers.splice(indexNumbers, 1);
+
+            setSelectedSeatsIds(newArrayIds);
+            setSelectedSeatsNumbers(newArrayNumbers);
+
         } else {
             alert("Esse assento não está disponível");
         }
