@@ -10,6 +10,27 @@ export default function Form({ selectedSeatsIds, selectedSeatsNumbers, movieName
     function submitRequest(event) {
         event.preventDefault();
 
+        if(selectedSeatsIds.length === 0) {
+            return alert("Escolha no mínimo um assento!");
+        }
+
+        for(let i = 0; i < name.length; i++) {
+            if(isNaN(name[i]) === false) {
+                setName("");
+                return alert("Nome inválido!");
+            }
+        }
+
+        if(cpf.length !== 11) {
+            return alert("CPF inválido!");
+        } else if(cpf.length === 11) {
+            for(let i = 0; i < cpf.length; i++) {
+                if(isNaN(cpf[i]) === true) {
+                    return alert("CPF inválido!");
+                }
+            }
+        }
+
         const promise = axios.post("https://mock-api.driven.com.br/api/v7/cineflex/seats/book-many", {
             ids: selectedSeatsIds, 
             name, 
@@ -17,8 +38,6 @@ export default function Form({ selectedSeatsIds, selectedSeatsNumbers, movieName
         });
 
         promise.then(response => {
-            setName(response.data);
-            setCpf(response.data);
             setOrderInfo({
                 movieName, 
                 date, 

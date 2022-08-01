@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 export default function CompletedOrder({ orderInfo }) {
     let navigate = useNavigate();
     const { movieName, date, timeSession, selectedSeatsNumbers, name, cpf } = orderInfo;
-
+    console.log(orderInfo);
     return (
         <>
             {(
@@ -34,7 +34,7 @@ export default function CompletedOrder({ orderInfo }) {
                         <div>
                             <h2>Comprador</h2>
                             <p>Nome: {name}</p>
-                            <p>CPF: {cpf}</p>
+                            <p>CPF: {cpf[0]+cpf[1]+cpf[2]}.{cpf[3]+cpf[4]+cpf[5]}.{cpf[6]+cpf[7]+cpf[8]}-{cpf[9]+cpf[10]}</p>
                         </div>
                     </div>
 
